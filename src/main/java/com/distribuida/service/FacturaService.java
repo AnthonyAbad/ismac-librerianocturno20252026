@@ -21,4 +21,5 @@ public interface FacturaService {
 
     public void delete(int id);
 
+    Object findByid(int i);
 }

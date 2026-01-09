@@ -49,5 +49,10 @@ public class FacturaServiceImpl implements FacturaService{
         }
         }
 
+    @Override
+    public Object findByid(int i) {
+        return null;
     }
+
+}
 
