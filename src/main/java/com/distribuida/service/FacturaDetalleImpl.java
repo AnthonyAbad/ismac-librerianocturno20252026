@@ -4,10 +4,11 @@ import com.distribuida.dao.FacturaDetalleRepository;
 import com.distribuida.model.FacturaDetalle;
 import com.distribuida.model.Libro;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class FacturaDetalleImpl implements FacturaDetalleService{
 
     @Autowired
@@ -29,7 +30,7 @@ public class FacturaDetalleImpl implements FacturaDetalleService{
     }
 
     @Override
-    public FacturaDetalle uptade(int id, FacturaDetalle facturaDetalle) {
+    public FacturaDetalle update(int id, FacturaDetalle facturaDetalle) {
         Optional<FacturaDetalle> facturaDetalleExistente = facturaDetalleRepository.findById(id);
 
 

@@ -44,7 +44,7 @@ public class CategoriaController {
     @PutMapping("/{id}")
     public ResponseEntity<Categoria> update(@PathVariable int id, @RequestBody Categoria categoria){
 
-        Categoria categoriaActualizado = categoriaService.uptade(id, categoria);
+        Categoria categoriaActualizado = categoriaService.update(id, categoria);
         if(categoriaActualizado == null){
             return  ResponseEntity.notFound().build();
         }

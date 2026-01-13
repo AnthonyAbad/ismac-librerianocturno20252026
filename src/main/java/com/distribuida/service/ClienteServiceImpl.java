@@ -31,7 +31,7 @@ public class ClienteServiceImpl implements ClienteService{
     }
 
     @Override
-    public Cliente uptade(int id, Cliente cliente) {
+    public Cliente update(int id, Cliente cliente) {
 
         Optional<Cliente> clienteExistente = clienteRepository.findById(id);
 

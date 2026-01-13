@@ -45,7 +45,7 @@ public class ClienteController {
     @PutMapping("/{id}")
     public ResponseEntity<Cliente> update(@PathVariable int id, @RequestBody Cliente cliente){
 
-        Cliente clienteActualizado = clienteService.uptade(id, cliente);
+        Cliente clienteActualizado = clienteService.update(id, cliente);
         if(clienteActualizado == null){
             return  ResponseEntity.notFound().build();
         }

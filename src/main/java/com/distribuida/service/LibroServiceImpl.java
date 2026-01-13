@@ -4,10 +4,11 @@ import com.distribuida.dao.LibroRepository;
 import com.distribuida.model.Factura;
 import com.distribuida.model.Libro;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class LibroServiceImpl implements LibroService{
 
     @Autowired
@@ -29,7 +30,7 @@ public class LibroServiceImpl implements LibroService{
     }
 
     @Override
-    public Libro uptade(int id, Libro libro) {
+    public Libro update(int id, Libro libro) {
         Optional<Libro> libroExistente = libroRepository.findById(id);
 
         libroExistente.orElse(null).setTitulo(libro.getTitulo());

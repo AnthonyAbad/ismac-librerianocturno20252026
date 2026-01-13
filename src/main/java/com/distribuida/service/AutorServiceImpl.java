@@ -2,12 +2,12 @@ package com.distribuida.service;
 
 import com.distribuida.dao.AutorRepository;
 import com.distribuida.model.Autor;
-import com.distribuida.model.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class AutorServiceImpl implements AutorService{
 
     @Autowired
@@ -30,7 +30,7 @@ public class AutorServiceImpl implements AutorService{
     }
 
     @Override
-    public Autor uptade(int id, Autor autor) {
+    public Autor update(int id, Autor autor) {
 
         Optional<Autor> autorExistente = autorRepository.findById(id);
 

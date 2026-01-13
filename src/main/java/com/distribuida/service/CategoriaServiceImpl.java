@@ -4,10 +4,11 @@ import com.distribuida.dao.CategoriaRepository;
 import com.distribuida.model.Categoria;
 import com.distribuida.model.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class CategoriaServiceImpl implements CategoriaService{
 
     @Autowired
@@ -29,7 +30,7 @@ public class CategoriaServiceImpl implements CategoriaService{
     }
 
     @Override
-    public Categoria uptade(int id, Categoria categoria) {
+    public Categoria update(int id, Categoria categoria) {
 
         Optional<Categoria> categoriaExistente = categoriaRepository.findById(id);
 
