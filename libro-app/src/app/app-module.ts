@@ -16,13 +16,15 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule} from '@angular/material/icon';
 import { CategoriaComponent } from './components/categoria/categoria';
 import { AutorComponent } from './components/autor/autor';
+import { LibroComponent } from './components/libro/libro';
 
 @NgModule({
   declarations: [
     App,
     ClienteComponent,
     CategoriaComponent,
-    AutorComponent
+    AutorComponent,
+    LibroComponent
   ],
   imports: [
     BrowserModule,
