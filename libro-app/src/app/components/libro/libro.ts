@@ -38,6 +38,7 @@ export class LibroComponent implements OnInit {
                               ,'tipoPasta','isbn','numEjemplares','portada','presentacion','precio','autor','categoria','acciones'  ];
 
   @ViewChild('formularioLibros')formularioLibro !: ElementRef;
+  //@ViewChild('formLibro') formularioLibro!: NgForm;
   @ViewChild  (MatPaginator)paginator !: MatPaginator;
   @ViewChild (MatSort)sort !:MatSort;
   @ViewChild('modalLibro')modalLibro!: TemplateRef<any>;
@@ -55,7 +56,7 @@ export class LibroComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.findAll();
   }
 
   findAll(): void{

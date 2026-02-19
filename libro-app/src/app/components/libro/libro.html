@@ -138,6 +138,8 @@
                 </div>
                 <div class="col-md-4 mb-2">
                     <mat-form-field appearance="outline" class="w-100">
+                        <mat-datepicker #picker></mat-datepicker>
+
                         <mat-label>Fecha de publicación</mat-label>
                         <input matInput [matDatepicker]="picker" [(ngModel)]="libro.fechaPublicacion"
                             name="fechaPublicacion" required />
@@ -171,7 +173,7 @@
                 <div class="col-md-4 mb-2">
                     <mat-form-field appearance="outline" class="w-100">
                         <mat-label>ISBN</mat-label>
-                        <input matInput type="text" [(ngModel)]="libro.isbn" name="isbn" required />
+                        <input matInput type="text" [(ngModel)]="libro.ISBN" name="isbn" required />
                     </mat-form-field>
                 </div>
                 <div class="col-md-4 mb-2">
@@ -199,7 +201,7 @@
                     <mat-form-field appearance="outline" class="w-100">
                         <mat-label>Categoria</mat-label>
                         <mat-select [(ngModel)]="libro.categoria" name="categoria" required
-                            [compareWith]="compareCategoria">
+                            [compareWith]="compareCategorias">
                             <mat-option *ngFor="let c of categorias" [value]="c">{{c.categoria}}</mat-option>
 
                         </mat-select>
@@ -207,7 +209,7 @@
                 </div>
                 <div class="col-md-12 mb-2">
                     <div class="custom-file-upload">
-                        <input #fileInput type="file" (change)="onSeleccionarArchivo($event)" hidden>
+                        <input #fileInput type="file" (change)="onFileSelected($event)" hidden>
                         <button mat-raised-button color="primary" (click)="fileInput.click()"
                             style="margin-right: 10 px ;">
                             Seleccionar Imagen
@@ -216,8 +218,8 @@
                         <button mat-raised-button color="primary" (click)="subirImagen()">Subir Imagen</button>
 
                     </div>
-                    <div class="imagen-container" *ngIf="libro.portada || imagenAnterior">
-                        <img [src]=" 'http://localhost:8080/' + (imagenAnterior || libro.portada)"
+                    <div class="imagen-container" *ngIf="libro.portada || imagenPrevia">
+                        <img [src]=" 'http://localhost:8080/' + (imagenPrevia || libro.portada)"
                             alt="Portada de libro" class="imagen-portada" />
 
                     </div>
@@ -252,7 +254,7 @@
         <p><strong>Fecha de Publicación:</strong>{{ libroSeleccionado?. fechaPublicacion | date}}</p>
         <p><strong>Descripción</strong>{{ libroSeleccionado?.descripcion }}</p>
         <p><strong>Tipo de Pasta:</strong>{{ libroSeleccionado?.tipoPasta }}</p>
-        <p><strong>ISBN: </strong>{{ libroSeleccionado?.iSBN }}</p>
+        <p><strong>ISBN: </strong>{{ libroSeleccionado?.ISBN }}</p>
         <p><strong>N° Ejemplares: </strong>{{ libroSeleccionado?.numEjemplares }}</p>
         <p><strong>Presentación:</strong>{{ libroSeleccionado?.presentacion }}</p>
         <p><strong>Precio:</strong>{{ libroSeleccionado?.precio | currency}}</p>
@@ -262,7 +264,7 @@
 
 <mat-dialog-actions align="end">
 <button mat-button mat-dialog-close>Cancelar</button>
-<button mat-flat-button color="primary" (click)="guardarLibro()" [disabled]="formLibro.invalid"> {{ editar? 'Actualizar': 'Guardar' }}
+<button mat-flat-button color="primary" (click)="guardarLibro()">
 </button>
 </mat-dialog-actions>
 
