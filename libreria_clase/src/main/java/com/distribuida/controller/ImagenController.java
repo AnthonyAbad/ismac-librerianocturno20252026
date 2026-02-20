@@ -32,7 +32,7 @@ public class ImagenController {
             Path path = Paths.get(UPLOAD_DIR + nombreArchivo);
             Files.write(path, file.getBytes());
             if(oldImage !=null && !oldImage.isEmpty()){
-                Path oldImagePath = Paths.get(oldImage);
+                Path oldImagePath = Paths.get("uploads/" +oldImage);
                 Files.deleteIfExists(oldImagePath);
             }
             Map<String, String> response = new HashMap<>();
