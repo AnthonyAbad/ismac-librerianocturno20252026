@@ -35,7 +35,7 @@ export class LibroComponent implements OnInit {
 
 
  mostrarColumnas: string[]= ['idLibro','titulo','editorial','numPaginas','edicion','idioma','fechaPublicacion','descripcion'
-                              ,'tipoPasta','isbn','numEjemplares','portada','presentacion','precio','autor','categoria','acciones'  ];
+                              ,'tipoPasta','ISBN','numEjemplares','portada','presentacion','precio','autor','categoria','acciones'];
 
   @ViewChild('formularioLibros')formularioLibro !: ElementRef;
   //@ViewChild('formLibro') formularioLibro!: NgForm;
@@ -56,7 +56,7 @@ export class LibroComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.findAll();
+    this.findAll(); 
   }
 
   findAll(): void{
